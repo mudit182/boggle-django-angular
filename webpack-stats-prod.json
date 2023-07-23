@@ -1,0 +1,29 @@
+{
+    "status": "done",
+    "chunks": {
+        "runtime": [
+            {
+                "name": "runtime-c52141d1bc5301631f05.js",
+                "path": "/Users/Mudi/Programming/MyCode/Fullstack/boggle/frontend/dist/runtime-c52141d1bc5301631f05.js"
+            }
+        ],
+        "main": [
+            {
+                "name": "main-c52141d1bc5301631f05.js",
+                "path": "/Users/Mudi/Programming/MyCode/Fullstack/boggle/frontend/dist/main-c52141d1bc5301631f05.js"
+            }
+        ],
+        "polyfills": [
+            {
+                "name": "polyfills-c52141d1bc5301631f05.js",
+                "path": "/Users/Mudi/Programming/MyCode/Fullstack/boggle/frontend/dist/polyfills-c52141d1bc5301631f05.js"
+            }
+        ],
+        "styles": [
+            {
+                "name": "styles.b946d83526e6418df374.css",
+                "path": "/Users/Mudi/Programming/MyCode/Fullstack/boggle/frontend/dist/styles.b946d83526e6418df374.css"
+            }
+        ]
+    }
+}

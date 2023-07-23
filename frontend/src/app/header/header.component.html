@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand bg-dark">
+  <a class="navbar-nav" (click)="setPanelOpen(!isPanelOpen())">
+    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 8 8">
+      <path fill="rgb(233, 178, 178)" d="M0 0v1h8v-1h-8zm0 2.97v1h8v-1h-8zm0 3v1h8v-1h-8z" transform="translate(0 1)" />
+    </svg>
+  </a>
+  <div class="navbar-nav" *ngIf="isPanelOpen()">
+    <a class="nav-item nav-link" [routerLink]="'/boggle/play'"> Play </a>
+    <a class="nav-item nav-link" [routerLink]="'/boggle/options'"> Options </a>
+    <a class="nav-item nav-link" [routerLink]="'/boggle/help'"> Help </a>
+  </div>
+  <div *ngIf="!isPanelOpen()" class="panel-alternate">
+    <div class="nav-item2">
+        <button
+         class="boggle-btn"
+         appButtonSpecialEffects
+         [fontSizeInEm]="1"
+         [shadowEffect]="false"
+         [ngClass]="getCssClass('boggle-btn')"
+         (click)="newBoard()">
+         BOGGLE
+       </button>
+    </div>
+    <div class="nav-item2">
+      <app-clock 
+       [fontSizeInEm]="1.5"
+       [widthInPx]="120"
+       [heightInPx]="50">
+      </app-clock>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,213 @@
+<div class="container-fluid d-flex flex-column justify-content-center">
+  <div
+   class="row row-first"
+   [ngStyle]="(focus === 'dimension') && {
+     'z-index': 2, 'box-shadow': '1px 1px 5px rgba(0, 0, 0, 0.3)',
+     'background': getPanelBackgroundForCurrentTheme()
+    }"
+   (mouseleave)="focusOff('dimension')">
+    <div class="col">
+      <div class="row row-second">
+        <div class="col col-second">
+          <div> Board Dimensions : </div>
+        </div>
+      </div>
+      <div class="row row-second">
+        <div class="col col-second d-flex">
+          <div class="menu-list-container" style="width: 40px;" appSelectionList>
+            <div
+             class="dim-selection"
+             [ngClass]="getCssClass('selection')"
+             (click)="focusOn('dimension')">
+              {{ getSelectedBoardDimension('row') }}
+            </div>
+            <ul class="menu-list" [ngClass]="getCssClass('menu-list')">
+              <li
+               *ngFor="let row of dimensionOptions"
+               (click)="onSelectBoardDimension('row', row)"
+               appSelectionListItemHover
+               [alreadySelectedListItem]="row === getSelectedBoardDimension('row')"
+               style="text-align: center;">
+                {{ row }}
+              </li>
+            </ul>
+          </div>
+          <div style="margin: 0px 15px;">
+            x
+          </div>
+          <div class="menu-list-container" style="width:40px;" appSelectionList>
+            <div
+             class="dim-selection"
+             [ngClass]="getCssClass('selection')"
+             (click)="focusOn('dimension')">
+              {{ getSelectedBoardDimension('col') }}
+            </div>
+            <ul class="menu-list" [ngClass]="getCssClass('menu-list')">
+              <li
+               *ngFor="let col of dimensionOptions"
+               (click)="onSelectBoardDimension('col', col)"
+               appSelectionListItemHover
+               [alreadySelectedListItem]="col === getSelectedBoardDimension('col')"
+               style="text-align: center;">
+                {{ col }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+   class="row row-first"
+   [ngStyle]="(focus === 'duration') && {
+     'z-index': 2, 'box-shadow': '1px 1px 5px rgba(0, 0, 0, 0.3)',
+     'background': getPanelBackgroundForCurrentTheme()
+    }"
+   (mouseleave)="focusOff('duration')">
+    <div class="col ">
+      <div class="row row-second">
+        <div class="col col-second">
+          <div> Game Duration : </div>
+        </div>
+      </div>
+      <div class="row row-second">
+        <div class="col col-second">
+          <input
+           [(ngModel)]="duration.min"
+           (click)="focusOn('duration')"
+           type="number" min="0" max="99"
+           class="input-time input-min"
+           [ngClass]="getTimeInputCssClass()">
+           min
+          <input
+           [(ngModel)]="duration.sec"
+           (click)="focusOn('duration')"
+           type="number" min="0" max="59"
+           class="input-time input-sec"
+           [ngClass]="getTimeInputCssClass()">
+           sec
+        </div>
+      </div>
+      <div class="row row-second">
+        <div class="col col-second">
+          <div class="set-reset-duration-buttons-space">
+            <span *ngIf="timeEdited()">
+              <svg (click)="setNewDuration()" class="svg-duration" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 8 8">
+                <path fill="rgb(6, 199, 48)" d="M4 0c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm2 1.78l.72.72-3.22 3.22-1.72-1.72.72-.72 1 1 2.5-2.5z" />
+              </svg>
+              <svg (click)="noSetNewDuration()" class="svg-duration" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 8 8">
+                <path fill="rgb(224, 97, 97)" d="M4 0c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm-1.5 1.78l1.5 1.5 1.5-1.5.72.72-1.5 1.5 1.5 1.5-.72.72-1.5-1.5-1.5 1.5-.72-.72 1.5-1.5-1.5-1.5.72-.72z" />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+   class="row row-first"
+   [ngStyle]="(focus === 'theme') && {
+     'z-index': 2, 'box-shadow': '1px 1px 5px rgba(0, 0, 0, 0.3)',
+     'background': getPanelBackgroundForCurrentTheme()
+    }"
+   (mouseleave)="focusOff('theme')">
+    <div class="col">
+      <div class="row row-second">
+        <div class="col col-second">
+          <div> Board Theme : </div>
+        </div>
+      </div>
+      <div class="row row-second">
+        <div class="col col-second">
+          <div class="menu-list-container" style="width: 150px;" appSelectionList>
+            <div class="styling-selection" [ngClass]="getCssClass('selection')" (click)="focusOn('theme')">
+              {{ getSelectedStyling('theme').displayLabel }}
+            </div>
+            <ul class="menu-list" [ngClass]="getCssClass('menu-list')">
+              <li
+               *ngFor="let theme of themeOptions; let i = index"
+               (click)="onSelectStyling('theme', i)"
+               appSelectionListItemHover
+               [alreadySelectedListItem]="theme.displayLabel === getSelectedStyling('theme').displayLabel"
+               style="padding-left: 5px;">
+                {{ theme.displayLabel }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+   class="row row-first"
+   [ngStyle]="(focus === 'font-size') && {
+     'z-index': 2, 'box-shadow': '1px 1px 5px rgba(0, 0, 0, 0.3)',
+     'background': getPanelBackgroundForCurrentTheme()
+    }"
+   (mouseleave)="focusOff('font-size')">
+    <div class="col">
+      <div class="row row-second">
+        <div class="col col-second">
+          <div> Letter Size : </div>
+        </div>
+      </div>
+      <div class="row row-second">
+        <div class="col col-second">
+          <div class="menu-list-container" style="width: 80px;" appSelectionList>
+            <div class="styling-selection" [ngClass]="getCssClass('selection')" (click)="focusOn('font-size')">
+              {{ getSelectedStyling('fontSize').displayLabel }}
+            </div>
+            <ul class="menu-list" [ngClass]="getCssClass('menu-list')">
+              <li
+               *ngFor="let fontSize of fontSizeOptions; let i = index"
+               (click)="onSelectStyling('fontSize', i)"
+               appSelectionListItemHover
+               [alreadySelectedListItem]="fontSize.displayLabel === getSelectedStyling('fontSize').displayLabel"
+               style="padding-left: 5px;">
+                {{ fontSize.displayLabel }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+   class="row row-first"
+   [ngStyle]="(focus === 'font-family') && {
+     'z-index': 2, 'box-shadow': '1px 1px 5px rgba(0, 0, 0, 0.3)',
+     'background': getPanelBackgroundForCurrentTheme()
+    }"
+   (mouseleave)="focusOff('font-family')">
+    <div class="col">
+      <div class="row row-second">
+        <div class="col col-second">
+          <div> Font : </div>
+        </div>
+      </div>
+      <div class="row row-second">
+        <div class="col col-second">
+          <div class="menu-list-container" style="width: 200px;" appSelectionList>
+            <div class="styling-selection" [ngClass]="getCssClass('selection')" (click)="focusOn('font-family')">
+              {{ getSelectedStyling('fontFamily').displayLabel }}
+            </div>
+            <ul class="menu-list" [ngClass]="getCssClass('menu-list')">
+              <li
+               *ngFor="let fontFamily of fontFamilyOptions; let i = index"
+               (click)="onSelectStyling('fontFamily', i)"
+               appSelectionListItemHover
+               [alreadySelectedListItem]="fontFamily.displayLabel === getSelectedStyling('fontFamily').displayLabel"
+               style="padding-left: 5px;"
+               [ngStyle]="{
+                 'font-family': fontFamily.cssLabel
+                }">
+                {{ fontFamily.displayLabel }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="showOpaqueBackground" class="opaque-foreground"></div>
+</div>

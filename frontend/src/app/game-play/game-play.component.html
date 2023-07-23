@@ -1,0 +1,17 @@
+<div class="container-fluid">
+  <div class="row no-gutters">
+    <div
+     *ngIf="isPanelOpen()"
+     class="col-3 panel-space"
+     [ngClass]="getCssClass('panel-space')">
+      <router-outlet></router-outlet>
+    </div>
+    <div
+     #draggableSpace
+     class="col board-draggable-space" 
+     [ngClass]="getCssClass('draggable-space')"
+     (window:resize)="reformatBoard()">
+      <app-board></app-board>
+    </div>
+  </div>
+</div>

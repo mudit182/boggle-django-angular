@@ -1,0 +1,72 @@
+.container-fluid {
+    padding: 0px;
+}
+
+.row {
+    position: relative;
+}
+
+.panel-space {
+    overflow: scroll;
+    height: 90vh;
+}
+
+.panel-in-front {
+    position: absolute;
+    z-index: 1;
+}
+
+.board-draggable-space {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scrabble-tiles-panel-space {
+    background: rgb(192, 193, 196);
+    color: rgb(82, 0, 0);
+}
+
+.paper-print-panel-space {
+    background: linear-gradient(90deg, rgb(255, 255, 255), rgb(209, 209, 209));
+    color: rgb(100, 100, 100);
+}
+
+.pebble-glass-panel-space {
+    background: linear-gradient(90deg, rgb(192, 158, 113), rgb(184, 144, 106));
+    color: rgb(97, 1, 17);
+}
+
+.water-bubbles-panel-space {
+    background: linear-gradient(90deg, rgba(102, 222, 252, 0.527), rgba(13, 132, 161, 0.527));
+    color: rgb(0, 94, 148);
+}
+
+.scrabble-tiles-draggable-space {
+    background-image: url("/assets/themes/light-grey-texture.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.paper-print-draggable-space {
+    background-image: url("/assets/themes/wrinkled-paper-texture.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.pebble-glass-draggable-space {
+    background-image: url("/assets/themes/pebbles.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.water-bubbles-draggable-space {
+    background-image: url("/assets/themes/bubbles-underwater.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

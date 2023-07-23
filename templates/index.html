@@ -1,0 +1,24 @@
+{% load render_bundle from webpack_loader %}
+{% load webpack_static from webpack_loader %}
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Frontend</title>
+  <base href="/">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  {% render_bundle 'styles' 'css' %}
+</head>
+
+<body>
+  {% block content %}
+  <app-root></app-root>
+  {% endblock content %}
+
+  {% render_bundle 'runtime' 'js' %}
+  {% render_bundle 'polyfills' 'js' %}
+  {% render_bundle 'main' 'js' %}
+</body>
+
+</html>

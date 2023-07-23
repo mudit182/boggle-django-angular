@@ -1,0 +1,17 @@
+<div class="title-container">
+  <div
+   class="boggle-tile"
+   [ngClass]="[getCssClass('letter-space')]"
+   [ngStyle]="{
+     'width': getTileLength(),
+     'height': getTileLength(),
+     'font-size': getSelectedStyling('fontSize').cssLabel, 
+     'font-family': getSelectedStyling('fontFamily').cssLabel
+    }">
+    {{ letter | uppercase }}
+  </div>
+  <div>
+    <div [ngClass]="[getCssClass('opaque-background')]"> 
+    </div>
+  </div>
+</div>

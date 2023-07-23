@@ -1,0 +1,20 @@
+<div class="word-space">
+  <button
+   *ngIf="!showWords && timeIsUp() && !showingSample()" 
+   appButtonSpecialEffects
+   [fontSizeInEm]="0.9"
+   class="words-btn"
+   [ngClass]="getCssClass('words-btn')"
+   (click)="showWords = !showWords">
+    Show All  Words
+  </button>
+  <ul 
+   *ngIf="showWords" 
+   class="words-list"
+   [ngClass]="getCssClass('words-list')">
+    <li *ngFor="let word of words; index as i" class="words-list-item">
+      <div class="boggle-word-index"> {{ i + 1 }}. </div>
+      <div class="boggle-word"> {{ word | uppercase }} </div> 
+    </li>
+  </ul>
+</div>

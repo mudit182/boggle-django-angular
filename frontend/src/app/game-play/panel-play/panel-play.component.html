@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <div class="row row-first">
+    <div class="col col-first">
+      <div class="row row-second">
+        <div class="col col-second">
+          <button
+           class="boggle-btn"
+           appButtonSpecialEffects
+           [fontSizeInEm]="1.5"
+           [ngClass]="getCssClass('boggle-btn')"
+           (click)="newBoard()">
+            BOGGLE
+          </button>
+        </div>
+      </div>
+      <div class="row row-second">
+        <div class="col col-second">
+          <app-clock 
+           [fontSizeInEm]="1.5"
+           [widthInPx]="120"
+           [heightInPx]="50"
+           [shadowEffect]="true">
+          </app-clock>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row row-first">
+    <div class="col col-first">
+      <app-boggle-words></app-boggle-words>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="container-fluid board-container">
+  <div 
+   class="container-fluid opaque-background" 
+   [ngClass]="[getCssClass('board-background')]">
+  </div>
+  <div class="row no-gutters" *ngFor="let rowLetters of boardLetters">
+    <div class="col" *ngFor="let letter of rowLetters">
+      <app-board-tile [letter]="letter"></app-board-tile>
+    </div>
+  </div>
+</div>
